@@ -1,0 +1,21 @@
+##################################
+            Todo
+##################################
+
+**** principe ****
+
+messagegie chiffrée
+
+**** prerequis ****
+ - système d'autentification
+ - lecture de fichier
+ - système de parsing pour les messages
+ - protocole de connextion
+ - protocole chiffrement
+ - système sauvegarde chiffrée
+ - système de compte
+ - système pour les message sans présence
+ - documentation
+ - système d'aide
+ - sécurité du serveur
+  
