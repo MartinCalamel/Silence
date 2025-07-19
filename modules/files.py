@@ -5,7 +5,7 @@
 # TODO : test unitaires
 """
 
-import info
+import modules.info as info
 import csv
 
 def exist_file(file_name:str)->bool:
