@@ -28,11 +28,11 @@ def exist_file(file_name: str) -> bool:
         return False
 
 
-def read(file_name: str, delimiter: str) -> list: 
+def read(file_name: str, delimiter: str) -> list:
     """
     # read
     ## Fonction
-    lit un fichier s'il exite et retourne son contenu sous 
+    lit un fichier s'il exite et retourne son contenu sous
     la forme [lignes[delimiteur]]
     ## Input
     * file_name : str -> Nom du fichier + path si requis
@@ -53,7 +53,7 @@ def write(file_name: str, data: str) -> None:
     """
     # write
     ## Fonction
-    ecrit le contenue de data dans le fichier en EFFACANT 
+    ecrit le contenue de data dans le fichier en EFFACANT
     le contenue du fichier
     ## Input
     * file_name : str -> Nom du fichier + path si requis
@@ -70,7 +70,7 @@ def add(file_name: str, data: str) -> None:
     """
     # add
     ## Fonction
-    Ajoute le contenue de data au fichier s'il exite  
+    Ajoute le contenue de data au fichier s'il exite
     on créé une nouvelle ligne
     ## Input
     * file_name : str -> Nom du fichier + path si requis
