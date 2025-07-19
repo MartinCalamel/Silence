@@ -10,3 +10,9 @@ def test_files():
     assert not exist_file("non_exist.txt")
 
     assert read(file, ";") == [["data", "test"]]
+
+    add(file, "bonjour;salut")
+    assert read(file, ";") == [["data", "test"], ["bonjour","salut"]]
+
+    write(file, "bonjour;salut")
+    assert read(file, ';') == [["bonjour", "salut"]]
