@@ -43,7 +43,7 @@ def read(file_name: str, delimiter: str) -> list:
     data: list = []
     if exist_file(file_name):
         with open(file_name, "r") as file:
-            content = csv.reader(file, delimiter)
+            content = csv.reader(file, delimiter=delimiter)
             for ligne in content:
                 data.append(ligne)
     return data
