@@ -12,7 +12,7 @@ def test_files():
     assert read(file, ";") == [["data", "test"]]
 
     add(file, "bonjour;salut")
-    assert read(file, ";") == [["data", "test"], ["bonjour","salut"]]
+    assert read(file, ";") == [["data", "test"], ["bonjour", "salut"]]
 
     write(file, "bonjour;salut")
     assert read(file, ';') == [["bonjour", "salut"]]
