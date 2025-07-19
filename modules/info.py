@@ -1,14 +1,15 @@
 """
 # Auteur : Wallaby
 # Date : 2025-07-18
-# Objet : 
-# TODO : 
+# Objet :
+# TODO :
 """
 from colorama import Fore, init
 
 init()
 
-def error(message:str)-> None:
+
+def error(message: str) -> None:
     """
     # error
     ## Fonction
@@ -18,4 +19,4 @@ def error(message:str)-> None:
     ## Output
     None
     """
-    print(Fore.RED,"\nError : ",message,Fore.WHITE)
+    print(Fore.RED, "\nError : ", message, Fore.WHITE)
