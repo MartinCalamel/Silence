@@ -1,7 +1,8 @@
 """
 # Auteur : Wallaby
 # Date : 2025-09-05
-# Objet : Module pour la gestion et la validation des hash avec integration du sel
+# Objet : Module pour la gestion et la validation
+            des hash avec integration du sel
 # TODO :    - comparaison de hash
             - gestion du sel
             - validation de hash
@@ -13,6 +14,7 @@ import random
 import string
 
 ALPHA = string.ascii_letters + string.digits + string.punctuation
+
 
 def make_salt(len: int) -> bytes:
     """
@@ -27,7 +29,8 @@ def make_salt(len: int) -> bytes:
     sel = ''.join(random.choice(ALPHA) for _ in range(len))
     return sel
 
-def make_hash(text : str) -> str:
+
+def make_hash(text: str) -> str:
     """
     # make_hash
     ## Fonction
@@ -43,6 +46,7 @@ def make_hash(text : str) -> str:
     hash = hash.hex()
     result: str = sel.decode("utf-8") + ";" + hash
     return result
+
 
 def check_hash(text: str, hash_and_salt: str) -> bool:
     """
