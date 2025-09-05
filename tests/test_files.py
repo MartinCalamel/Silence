@@ -14,5 +14,5 @@ def test_files():
     add(file, "bonjour;salut")
     assert read(file, ";") == [["data", "test"], ["bonjour", "salut"]]
 
-    write(file, "bonjour;salut")
-    assert read(file, ';') == [["bonjour", "salut"]]
+    write(file, "data;test")
+    assert read(file, ';') == [["data", "test"]]
