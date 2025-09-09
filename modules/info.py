@@ -5,6 +5,7 @@
 # TODO :
 """
 from colorama import Fore, init
+from modules.type import check_type
 
 init()
 
@@ -19,4 +20,8 @@ def error(message: str) -> None:
     ## Output
     None
     """
+
+    # Verification des types (test des paramètres)
+    check_type(message, str)
+
     print(Fore.RED, "\nError : ", message, Fore.WHITE)
