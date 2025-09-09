@@ -4,6 +4,7 @@
 # Objet : gestion des type et verrification du bon format de ceux ci
 # TODO :    fonction de verification
             gestion des erreurs
+            tests
 """
 
 from modules.info import error
