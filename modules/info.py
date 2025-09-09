@@ -21,6 +21,5 @@ def error(message: str) -> None:
     """
 
     # Verification des types (test des paramètres)
-    check_type(message, str)
 
     print(Fore.RED, "\nError : ", message, Fore.WHITE)
