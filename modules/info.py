@@ -5,7 +5,6 @@
 # TODO :
 """
 from colorama import Fore, init
-from modules.type import check_type
 
 init()
 
