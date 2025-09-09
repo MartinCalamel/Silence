@@ -22,7 +22,7 @@ def check_type(var: any, type_cible: any) -> bool:
     ## Output
     * result: bool -> Resultat de la verification
     """
-    if isinstance(var,type_cible):
+    if isinstance(var, type_cible):
         return True
     error("le type de la variable n'est pas le bon")
     sys.exit()
