@@ -14,7 +14,7 @@ def check_type(var: any, type_cible: any) -> bool:
     """
     # check_type
     ## Fonction
-    Verifie que le type de la variable est bien celui attendu.  
+    Verifie que le type de la variable est bien celui attendu.
     Dans le cas contraire, génère une erreur.
     ## Input
     * var: any -> variable dont on veux verifier le type
@@ -24,5 +24,5 @@ def check_type(var: any, type_cible: any) -> bool:
     """
     if isinstance(var, type_cible):
         return True
-    error("le type de la variable n'est pas le bon")
+    error("Le type de la variable n'est pas le bon")
     sys.exit()
