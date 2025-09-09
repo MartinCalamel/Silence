@@ -31,7 +31,7 @@ def make_salt(len: int) -> bytes:
 
     # Verification des types (test des paramètres)
     check_type(len, int)
-    
+
     sel = ''.join(random.choice(ALPHA) for _ in range(len))
     return sel
 
