@@ -1,0 +1,49 @@
+"""
+# Auteur : Wallaby
+# Date : 2025-09-10
+# Objet : fonction pour le protocole d'authentification
+# TODO :    fonction d'enregistrement d'user
+            Fonction de verrification d'utilisateur
+"""
+
+import modules.files as files
+import modules.hash as hash
+import modules.type as type
+import modules.info as info
+
+# Nom du fichier où sont enregistré les mots de passes et les nom d'utilisateur 
+PASSWORD_USERNAME_FILENAME: str = "/temp/passwd.txt"
+
+
+def new_user(username: str, password: str) -> bool:
+    """
+    # new_user
+    ## Fonction
+    Gestion d'un nouvel utilisateur
+    ## Input
+    * username: str -> Nom de l'utilisateur
+    * password: str -> Mot de passe de l'utilisateur
+    ## Output
+    * valid: bool -> authentification validée
+    """
+
+    # Verification des types (test des paramètres)
+    type.check_type(username, str)
+    type.check_type(password, str)
+
+    if not files.exist_file(PASSWORD_USERNAME_FILENAME):
+        files.create_file(PASSWORD_USERNAME_FILENAME, "")
+    else :
+        data: list = files.read(PASSWORD_USERNAME_FILENAME, ";")
+        list_username: list = [ligne[0] for ligne in data]
+        
+        if username in list_username:
+            info.error("Nom d'utilisateur déjà utilisé")
+            return False
+    
+    hashed_password: str = hash.make_hash(password)
+    data: str = username + ";" + hashed_password
+
+    files.add(PASSWORD_USERNAME_FILENAME, data)
+    
+    return True
