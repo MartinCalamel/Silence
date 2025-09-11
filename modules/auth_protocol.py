@@ -12,7 +12,7 @@ import modules.hash as hash
 import modules.type as type
 import modules.info as info
 
-# Nom du fichier où sont enregistré les mots de passes et les nom d'utilisateur 
+# Nom du fichier où sont enregistré les mots de passes et les nom d'utilisateur
 PASSWORD_USERNAME_FILENAME: str = "/temp/passwd.txt"
 
 
@@ -78,16 +78,17 @@ def new_user(username: str, password: str) -> bool:
 
     if not files.exist_file(PASSWORD_USERNAME_FILENAME):
         files.create_file(PASSWORD_USERNAME_FILENAME, "")
-    else :
+    else:
         if is_username_used(username):
             return False
-    
+
     hashed_password: str = hash.make_hash(password)
     data: str = username + ";" + hashed_password
 
     files.add(PASSWORD_USERNAME_FILENAME, data)
-    
+
     return True
+
 
 def verif_user(username: str, password: str) -> bool:
     """
@@ -107,14 +108,13 @@ def verif_user(username: str, password: str) -> bool:
     type.check_type(password, str)
 
     if not files.exist_file(PASSWORD_USERNAME_FILENAME):
-        info.error("Le fichier contenant les mots de passe " \
-        "et les utilisateur n'existe pas.\n verifier le chemin d'accès")
+        message: str = "Le fichier contenant les mots de passe "
+        message += "et les utilisateur n'existe pas."
+        info.error(message)
         return False
-    
+
     info_user = get_user_log_info(username)
     if info_user == []:
         return False
-    
-    return hash.check_hash(password, ";".join(info_user[1:])) 
-    
 
+    return hash.check_hash(password, ";".join(info_user[1:])) 
