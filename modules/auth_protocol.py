@@ -40,6 +40,26 @@ def is_username_used(username: str) -> bool:
     return True
 
 
+def get_user_log_info(username: str) -> list:
+    """
+    # get_user_log_info
+    ## Fonction
+    Permet de réccuperer les informations de sel et mot de passe
+    d'un utilisateur.
+    ## Input
+    * username: str -> Nom de l'utilisateur
+    ## Output
+    result: list -> resultat
+    """
+    data: list = files.read(PASSWORD_USERNAME_FILENAME, ";")
+    info_user = [user for user in data if user[0] == username]
+
+    if not len(info_user) == 1:
+        info.error("L'utilisateur n'existe pas ou existe en double!")
+        return []
+    return info_user[0]
+
+
 def new_user(username: str, password: str) -> bool:
     """
     # new_user
@@ -68,3 +88,33 @@ def new_user(username: str, password: str) -> bool:
     files.add(PASSWORD_USERNAME_FILENAME, data)
     
     return True
+
+def verif_user(username: str, password: str) -> bool:
+    """
+    # verif_user
+    ## Fonction
+    Lit le fichier des utilisateurs et verifie que le mot de passe
+    est bien associé au nom d'utilisateur.
+    ## Input
+    * username: str -> Nom de l'utilisateur
+    * password: str -> Mot de passe de l'utilisateur
+    ## Output
+    * valid: bool -> authentification validée
+    """
+
+    # Verification des types (test des paramètres)
+    type.check_type(username, str)
+    type.check_type(password, str)
+
+    if not files.exist_file(PASSWORD_USERNAME_FILENAME):
+        info.error("Le fichier contenant les mots de passe " \
+        "et les utilisateur n'existe pas.\n verifier le chemin d'accès")
+        return False
+    
+    info_user = get_user_log_info(username)
+    if info_user == []:
+        return False
+    
+    return hash.check_hash(password, ";".join(info_user[1:])) 
+    
+
