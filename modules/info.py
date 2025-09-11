@@ -19,4 +19,7 @@ def error(message: str) -> None:
     ## Output
     None
     """
+
+    # Verification des types (test des paramètres)
+
     print(Fore.RED, "\nError : ", message, Fore.WHITE)

@@ -7,6 +7,9 @@
 
 import modules.info as info
 import csv
+import os
+
+from modules.type import check_type
 
 
 def exist_file(file_name: str) -> bool:
@@ -19,6 +22,10 @@ def exist_file(file_name: str) -> bool:
     ## Output
     Bool
     """
+
+    # Verification des types (test des paramètres)
+    check_type(file_name, str)
+
     try:
         f = open(file_name)
         f.close()
@@ -40,6 +47,11 @@ def read(file_name: str, delimiter: str) -> list:
     ## Outputresult = file.read()
     liste des lignes et des éléments
     """
+
+    # Verification des types (test des paramètres)
+    check_type(file_name, str)
+    check_type(delimiter, str)
+
     data: list = []
     if exist_file(file_name):
         with open(file_name, "r") as file:
@@ -61,8 +73,14 @@ def write(file_name: str, data: str) -> None:
     ## Output
     None
     """
+
+    # Verification des types (test des paramètres)
+    check_type(file_name, str)
+    check_type(data, str)
+
     with open(file_name, "w") as file:
         file.write(data)
+        file.write("\n")
     return None
 
 
@@ -78,8 +96,31 @@ def add(file_name: str, data: str) -> None:
     ## Output
     None
     """
+
+    # Verification des types (test des paramètres)
+    check_type(file_name, str)
+    check_type(data, str)
+
     if exist_file(file_name):
         with open(file_name, "a") as file:
-            file.write("\n")
             file.write(data)
+            file.write("\n")
+    return None
+
+
+def create_file(file_name: str) -> None:
+    """
+    # create_file
+    ## Fonction
+    fonction pour créer un fichier nommé {`file_name`}
+    ## Input
+    * file_name: str -> nom du fichier à créer
+    ## Output
+    None
+    """
+
+    # Verification des types (test des paramètres)
+    check_type(file_name, str)
+
+    open(file_name, "w").close()
     return None
