@@ -13,7 +13,7 @@ import modules.type as type
 import modules.info as info
 
 # Nom du fichier où sont enregistré les mots de passes et les nom d'utilisateur
-PASSWORD_USERNAME_FILENAME: str = "/temp/passwd.txt"
+PASSWORD_USERNAME_FILENAME: str = "passwd.txt"
 
 
 def is_username_used(username: str) -> bool:
@@ -32,12 +32,12 @@ def is_username_used(username: str) -> bool:
     type.check_type(username, str)
 
     data: list = files.read(PASSWORD_USERNAME_FILENAME, ";")
-    list_username: list = [ligne[0] for ligne in data]
+    list_username: list = [ligne[0] for ligne in data if ligne != []]
 
     if username in list_username:
         info.error("Nom d'utilisateur déjà utilisé")
-        return False
-    return True
+        return True
+    return False
 
 
 def get_user_log_info(username: str) -> list:
@@ -77,16 +77,16 @@ def new_user(username: str, password: str) -> bool:
     type.check_type(password, str)
 
     if not files.exist_file(PASSWORD_USERNAME_FILENAME):
-        files.create_file(PASSWORD_USERNAME_FILENAME, "")
+        files.create_file(PASSWORD_USERNAME_FILENAME)
     else:
         if is_username_used(username):
             return False
+
 
     hashed_password: str = hash.make_hash(password)
     data: str = username + ";" + hashed_password
 
     files.add(PASSWORD_USERNAME_FILENAME, data)
-
     return True
 
 

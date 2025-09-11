@@ -7,6 +7,7 @@
 
 import modules.info as info
 import csv
+import os
 
 from modules.type import check_type
 
@@ -79,6 +80,7 @@ def write(file_name: str, data: str) -> None:
 
     with open(file_name, "w") as file:
         file.write(data)
+        file.write("\n")
     return None
 
 
@@ -101,30 +103,24 @@ def add(file_name: str, data: str) -> None:
 
     if exist_file(file_name):
         with open(file_name, "a") as file:
-            file.write("\n")
             file.write(data)
+            file.write("\n")
     return None
 
 
-def create_file(file_name: str, path: str = "temp/") -> None:
+def create_file(file_name: str) -> None:
     """
     # create_file
     ## Fonction
-    fonction pour créer un fichier nommé {`file_name`} dans
-    dans le dossier {`path`}
+    fonction pour créer un fichier nommé {`file_name`}
     ## Input
     * file_name: str -> nom du fichier à créer
-    * path: str -> chemin vers le fichier *default = /temp*
     ## Output
     None
     """
 
     # Verification des types (test des paramètres)
     check_type(file_name, str)
-    check_type(path, str)
 
-    complet_path = path + file_name
-
-    with open(complet_path, "x") as f:
-        pass
+    open(file_name, "w").close()
     return None
