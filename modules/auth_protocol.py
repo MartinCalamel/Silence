@@ -117,4 +117,4 @@ def verif_user(username: str, password: str) -> bool:
     if info_user == []:
         return False
 
-    return hash.check_hash(password, ";".join(info_user[1:])) 
+    return hash.check_hash(password, ";".join(info_user[1:]))
