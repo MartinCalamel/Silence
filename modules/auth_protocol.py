@@ -82,7 +82,6 @@ def new_user(username: str, password: str) -> bool:
         if is_username_used(username):
             return False
 
-
     hashed_password: str = hash.make_hash(password)
     data: str = username + ";" + hashed_password
 

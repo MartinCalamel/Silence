@@ -10,7 +10,7 @@ pass2 = "not_password"
 
 
 def test_auth():
- 
+
     assert new_user(user1, pass1)
     assert new_user(user2, pass2)
     assert not new_user(user1, pass2)
