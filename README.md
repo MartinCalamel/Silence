@@ -1,6 +1,9 @@
 # Silence
+
 [![Python Tests](https://github.com/WallabyMt59/Silence/actions/workflows/python-tests.yml/badge.svg)](https://github.com/WallabyMt59/Silence/actions/workflows/python-tests.yml)
-![Image](./images/logo.jpg)
+
+<img src="./images/logo.jpg" alt="Description" width="300" style="display: block; margin: auto;">
+
 ## Sommaire
 * [Sommaire](#sommaire)
 
