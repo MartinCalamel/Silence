@@ -31,3 +31,16 @@ Ce composant permet la manipulation de fichier. Il possèdes 4 fonctions princip
 Ce composant permet d'afficher des informations à l'utilisateur tels que les erreurs ou les logs.  
 Pour le moment il ne possède qu'une seul fonction `error` permettant d'afficher une erreur en rouge dans la console.
 
+### type
+Ce composant permet de verifier le type d'une variable afin de contrôler les paramètre fournis au fonction.  
+Il ne possède qu'une seule fonction `check_type` qui effectue cette verification.
+
+### auth_protocol
+Ce composant permet d'effectuer une authentification sécurisée avec un identifiant et un mot de passe.  
+Le stockage de ces données est également sécurisé avec un hash et un sel.  
+Il y a donc deux fonctions principales et des fonctions annexes qui permettent à celles-ci de fonctionner correctement.  
+#### Fonctions principales
+* `verif_user` => vérifie si l'utilisateur existe et si le mot de passe est bon.
+* `new_user` => Ajoute un utilisateur à la base de donnée.
+
+#### Fonctions annexes
