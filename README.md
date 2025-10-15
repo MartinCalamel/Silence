@@ -35,6 +35,17 @@ Pour le moment il ne possède qu'une seul fonction `error` permettant d'afficher
 Ce composant permet de verifier le type d'une variable afin de contrôler les paramètre fournis au fonction.  
 Il ne possède qu'une seule fonction `check_type` qui effectue cette verification.
 
+### hash
+Ce composant permet la gestion des hash avec l'utilisation d'un sel.  
+Il possède deux fonction principal et une fonction annexe.
+
+#### Fonctions Principales
+* `make_hash` => génère un hash à partir d'une chaîne de caractère. On utilise le protocole sha256 avec un sel. 
+* `check_hash` => permet de verifier qu'une chaîne de caractère correspond à un hash. Cela va nous permettre de verifier un mot de passe par la suite.
+
+#### Fonction annexe
+* `make_salt` => génère un sel pour sécuriser le hash 
+
 ### auth_protocol
 Ce composant permet d'effectuer une authentification sécurisée avec un identifiant et un mot de passe.  
 Le stockage de ces données est également sécurisé avec un hash et un sel.  
@@ -44,3 +55,5 @@ Il y a donc deux fonctions principales et des fonctions annexes qui permettent �
 * `new_user` => Ajoute un utilisateur à la base de donnée.
 
 #### Fonctions annexes
+* `is_username_used` => vérifie que l'utilisateur n'existe pas déjà.
+* `get_user_log_info` => Permet de récupérer les informations de sel et mot de passe d'un utilisateur.

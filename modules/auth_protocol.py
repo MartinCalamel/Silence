@@ -20,10 +20,10 @@ def is_username_used(username: str) -> bool:
     """
     # is username_used
     ## Fonction
-    On verrifie dans le fichier des mots de passes
+    On vérifie dans le fichier des mots de passes
     et noms d'utilisateur que le nom d'utilisateur n'y est pas.
     ## Input
-    * username: str -> Nom d'utilisateur à controler
+    * username: str -> Nom d'utilisateur à contrôler
     ## Output
     * bool -> est ce que l'utilisateur est dans le fichier
     """
@@ -44,7 +44,7 @@ def get_user_log_info(username: str) -> list:
     """
     # get_user_log_info
     ## Fonction
-    Permet de réccuperer les informations de sel et mot de passe
+    Permet de récupérer les informations de sel et mot de passe
     d'un utilisateur.
     ## Input
     * username: str -> Nom de l'utilisateur
